@@ -1,7 +1,6 @@
-
 //This method should return true iff pre is a prefix of str. That is, str starts with pre
 method isPrefix(pre:string, str:string) returns(res:bool)
-    requires 0 < |pre| <= |str| //This line states that this method requires that pre is less than or equal in length to str. Without this line, an out of bounds error is shown on line 13: "str[i] != pre[i]"
+    requires 0 < |pre| <= |str| //This line states that this method requires that pre is less than or equal in length to str. Without this line, an out of bounds error is shown on line 14: "str[i] != pre[i]"
 {
     //Initialising the index variable
     var i := 0;
@@ -55,7 +54,6 @@ method isSubstring(sub:string, str:string) returns(res:bool)
 
     while(i < n+1)
         invariant 0 <= i <= n+1     //Specifying the range of the while loop
-        //invariant 
         decreases n - i             //Specifying that the while loop will terminate
     {
         //Debug print to show what is being passed to isPrefix with each iteration
@@ -144,6 +142,7 @@ method maxCommonSubstringLength(str1:string, str2:string) returns(len:nat)
     return 0;
 }
 
+//Main to test each method
 method Main(){
     // isPrefix test
     var prefix:string := "pre";
