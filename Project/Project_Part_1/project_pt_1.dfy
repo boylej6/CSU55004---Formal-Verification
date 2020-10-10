@@ -125,7 +125,7 @@ method maxCommonSubstringLength(str1:string, str2:string) returns(len:nat)
     }
 
     //Here, we want to re-use the "haveKCommonSubstring" method above, so with each iteration of the search, we pass a decreasing value of k until a common substring of this length is found. If no common substring is found, we return 0.
-    while (i > 0)
+    while (i >= 0)
         decreases i - 0
     {
         print str1, ", ", str2, " k = ", i, "\n";
