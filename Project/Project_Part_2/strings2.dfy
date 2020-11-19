@@ -36,18 +36,15 @@ lemma SubstringNegationLemma(sub:string, str:string)
 predicate haveCommonKSubstringPred(k:nat, str1:string, str2:string)
 {
 	//TODO
-	// exists x, j :: 0 <= x < |str1| - k && k <= |str1| && k <= |str2| && j == x + k && isSubstringPred(str1[x..j], str2)
-	// 
-	exists x :: 0 <= x < |str1| - k && k <= |str1| && k <= |str2| && isSubstringPred(str1[x..][..k], str2)
+
+	exists x :: 0 <= x <= |str1| - k && 0 < k <= |str1| && k <= |str2| && isSubstringPred(str1[x..][..k], str2)
 }
 
 predicate haveNotCommonKSubstringPred(k:nat, str1:string, str2:string)
 {
 	//TODO: your FOL formula should start with a forall
-	// Alternative
-	// forall x :: ( 0 <= x < |str1| - k && k <= |str1| && k <= |str2| ) ==> exists j :: ( j == x + k && isNotSubstringPred( str1[x..j], str2 ) )
-	// forall x, j :: 0 <= x < |str1| - k && k <= |str1| && k <= |str2| && j == x + k ==> isNotSubstringPred(str1[x..j], str2)
-	forall x :: 0 <= x < |str1| - k && k <= |str1| && k <= |str2| ==> isNotSubstringPred(str1[x..][..k], str2)
+
+	forall x :: 0 <= x <= |str1| - k && 0 < k <= |str1| && k <= |str2| ==> isNotSubstringPred(str1[x..][..k], str2)
 }
 
 // Sanity check: Dafny should be able to automatically prove the following lemma
